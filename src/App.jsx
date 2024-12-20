@@ -60,8 +60,8 @@ const questions = [
 
 function App() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [userAnswers, setUserAnswers] = useState([]);
-  const [score, setScore] = useState(0);
+  const [selectedAnswer, setSelectedAnswer] = useState(null); //kullanıcının sectiği cevap
+  const [isCorrectAnswer, setIsCorrectAnswer] = useState(null) //doğru/yanlış mı
 
   function handleNextQuestion(){
     if(currentQuestionIndex < questions.length-1){
@@ -75,6 +75,11 @@ function App() {
       setCurrentQuestionIndex((prevIndex) => prevIndex - 1)
     }
   }
+  const handleAnswer = (selectedOption) => {
+const isCorrect = questions[currentQuestionIndex].correctAnswer === selectedOption;
+setSelectedAnswer(selectedOption); //seçilen cevabı kaydet
+setIsCorrectAnswer(isCorrect); //doğru yanlış durumunu kontrol et
+  }
 
   return (
     <div className="flex flex-col justify-around h-screen bg-purple-100">
@@ -83,7 +88,7 @@ function App() {
         className="absolute left-96 cursor-pointer"
        onClick={handleBeforeQuestion}
       />
-      <Question questions={questions} currentIndex={currentQuestionIndex}
+      <Question questions={questions} currentIndex={currentQuestionIndex} handleAnswer={handleAnswer} selectedAnswer={selectedAnswer} isCorrectAnswer={isCorrectAnswer}
       
       />
       <FaRegArrowAltCircleRight
