@@ -12,6 +12,7 @@ import {
   FaRegArrowAltCircleRight,
 } from "react-icons/fa";
 import { use } from "react";
+import WelcomePage from "./WelcomePage";
 
 const questions = [
   {
@@ -60,9 +61,8 @@ const questions = [
 ];
 
 function App() {
+  const [quizStarted, setQuizStarted] = useState(false);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  // const [selectedAnswer, setSelectedAnswer] = useState(null); //kullanıcının sectiği cevap
-  // const [isCorrectAnswer, setIsCorrectAnswer] = useState(null); //doğru/yanlış mı
   const [answers, setAnswers] = useState(
     questions.map(() => ({ selectedAnswer: null, isCorrectAnswer: null }))
   ); //her sorunun seçilen cevabının doğru/yanlış durumunu saklar
@@ -73,12 +73,12 @@ function App() {
       setCurrentQuestionIndex((prevIndex) => prevIndex + 1); // yukardaki yerine callback functionu ekleyeceksin.
     }
   }
-
   function handleBeforeQuestion() {
     if (currentQuestionIndex > 0) {
       setCurrentQuestionIndex((prevIndex) => prevIndex - 1);
     }
   }
+
   const handleAnswer = (selectedOption) => {
     const isCorrect =
       questions[currentQuestionIndex].correctAnswer === selectedOption;
@@ -95,25 +95,32 @@ function App() {
   };
 
   return (
-    <div className="flex flex-col justify-around h-screen bg-purple-100">
-      <FaRegArrowAltCircleLeft
-        size="2em"
-        className="absolute left-96 cursor-pointer"
-        onClick={handleBeforeQuestion}
-      />
-      <Question
-        questions={questions}
-        currentIndex={currentQuestionIndex}
-        handleAnswer={handleAnswer}
-        selectedAnswer={answers[currentQuestionIndex].selectedAnswer}
-        isCorrectAnswer={answers[currentQuestionIndex].isCorrectAnswer}
-      />
-      <FaRegArrowAltCircleRight
-        size="2em"
-        className="absolute right-96 cursor-pointer"
-        onClick={handleNextQuestion}
-      />
-    </div>
+    <>
+    {!quizStarted ? (
+      <WelcomePage onStartQuiz={() => setQuizStarted(true)} />
+    ) : (
+      
+      <div className="flex flex-col justify-around h-screen bg-purple-100">
+        <FaRegArrowAltCircleLeft
+          size="2em"
+          className="absolute left-96 cursor-pointer"
+          onClick={handleBeforeQuestion}
+        />
+        <Question
+          questions={questions}
+          currentIndex={currentQuestionIndex}
+          handleAnswer={handleAnswer}
+          selectedAnswer={answers[currentQuestionIndex].selectedAnswer}
+          isCorrectAnswer={answers[currentQuestionIndex].isCorrectAnswer}
+        />
+        <FaRegArrowAltCircleRight
+          size="2em"
+          className="absolute right-96 cursor-pointer"
+          onClick={handleNextQuestion}
+        />
+      </div>
+       )}
+    </>
   );
 }
 
