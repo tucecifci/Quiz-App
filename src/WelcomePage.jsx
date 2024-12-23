@@ -8,8 +8,8 @@ function WelcomePage({onStartQuiz}) {
       <h1 className="text-6xl font-bold text-center text-purple-800 mb-6">
         Hoş Geldiniz!
       </h1>
-      <img className="w-2/5 mb-6 rounded-md" src={friends} alt="friends" />
-      <p className='"text-lg text-black-900 text-center max-w-xl mb-6 mt-6"'>
+      <img className="w-2/6 mb-6 rounded-md" src={friends} alt="friends" />
+      <p className="text-xl text-black-900 text-center max-w-xl mb-6">
         Bu quiz, Friends dizisi hakkındaki bilginizi test etmek için
         tasarlanmıştır. Her sorunun bir doğru cevabı vardır. Hazırsanız başlayalım!
       </p>
