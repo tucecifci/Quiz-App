@@ -176,10 +176,10 @@ function App() {
       ) : quizFinished ? (
         <ResultPage score={score} totalQuestions={questions.length} />
       ) : (
-        <div className="flex flex-col justify-around h-screen bg-purple-100">
+        <div className="">
           <FaRegArrowAltCircleLeft
             size="2em"
-            className="absolute left-96 cursor-pointer"
+            className="cursor-pointer"
             onClick={handleBeforeQuestion}
           />
           <Question
@@ -189,9 +189,10 @@ function App() {
             selectedAnswer={answers[currentQuestionIndex].selectedAnswer}
             isCorrectAnswer={answers[currentQuestionIndex].isCorrectAnswer}
           />
+
           <FaRegArrowAltCircleRight
             size="2em"
-            className="absolute right-96 cursor-pointer"
+            className="cursor-pointer"
             onClick={handleNextQuestion}
           />
         </div>
