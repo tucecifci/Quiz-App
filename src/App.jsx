@@ -11,7 +11,6 @@ import janice from "./assets/janice.jpeg";
 import myEyes from "./assets/myeyes.jpeg";
 import mondler from "./assets/mondler.jpeg";
 
-
 import {
   FaRegArrowAltCircleLeft,
   FaRegArrowAltCircleRight,
@@ -43,15 +42,20 @@ const questions = [
     correctAnswer: "Carol",
     image: ross,
   },
- 
+
   {
     id: 4,
     question: "Bu fotoğraf konuşabilse ne derdi?",
-    options: ["I wish I could, but I dont want to.", "My Eyes! My Eyes!", "Oh My God", "I Know"],
+    options: [
+      "I wish I could, but I dont want to.",
+      "My Eyes! My Eyes!",
+      "Oh My God",
+      "I Know",
+    ],
     correctAnswer: "My Eyes! My Eyes!",
     image: myEyes,
   },
- 
+
   {
     id: 5,
     question: "Chandler'ın ikinci ismi nedir?",
@@ -70,11 +74,16 @@ const questions = [
     id: 7,
     question:
       "Rachel'ın Barry'nin düğününde söylediği şarkının ismi aşağıdakilerden hangisidir?",
-    options: ["My Heart Will Go On", "I Will Always Love You", "Copa Cabana", "I Will Survive"],
+    options: [
+      "My Heart Will Go On",
+      "I Will Always Love You",
+      "Copa Cabana",
+      "I Will Survive",
+    ],
     correctAnswer: "Copa Cabana",
     image: rachel,
   },
- 
+
   {
     id: 8,
     question: "Bu fotoğraf konuşabilse ne derdi?",
@@ -85,7 +94,12 @@ const questions = [
   {
     id: 9,
     question: "Rachel'ın Ross'a yazdığı mektup kaç sayfadır?",
-    options: ["1 page", "8 pages", "Rachel Ross'a hiç mektup yazmamıştır", "18 pages front and back"],
+    options: [
+      "1 page",
+      "8 pages",
+      "Rachel Ross'a hiç mektup yazmamıştır",
+      "18 pages front and back",
+    ],
     correctAnswer: "18 pages front and back",
     image: ross,
   },
@@ -94,8 +108,8 @@ const questions = [
     question: "Chandler ve Monica'yı ilk kim öğrenir?",
     options: ["Joey", "Ross", "Rachel", "Phoebe"],
     correctAnswer: "Joey",
-    image: mondler
-  }
+    image: mondler,
+  },
 ];
 
 function App() {
@@ -142,15 +156,17 @@ function App() {
   //klavye olayları için useEffect
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if(e.key === "ArrowRight"){
+      if (e.key === "ArrowRight") {
         handleNextQuestion();
       }
-      if(e.key === "ArrowLeft"){
+      if (e.key === "ArrowLeft") {
         handleBeforeQuestion();
       }
     };
-    
-
+    window.addEventListener("keydown", handleKeyDown); // Olay dinleyicisini ekle
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
   }, [currentQuestionIndex]);
 
   return (
