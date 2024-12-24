@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Question from "./Question";
 import monica from "./assets/monica.jpeg";
@@ -138,6 +138,20 @@ function App() {
       setScore((prevScore) => prevScore + 1);
     }
   };
+
+  //klavye olayları için useEffect
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if(e.key === "ArrowRight"){
+        handleNextQuestion();
+      }
+      if(e.key === "ArrowLeft"){
+        handleBeforeQuestion();
+      }
+    };
+    
+
+  }, [currentQuestionIndex]);
 
   return (
     <>
