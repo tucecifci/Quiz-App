@@ -5,7 +5,7 @@ import friends from "./assets/friendsfull.jpeg";
 function WelcomePage({onStartQuiz}) {
   return (
     <div className="flex flex-col items-center justify-center bg-purple-200 min-h-screen">
-      <h1 className="text-6xl font-bold text-center text-purple-800 mb-6">
+      <h1 className="text-6xl font-bold text-center text-purple-900 mb-6">
         Hoş Geldiniz!
       </h1>
       <img className="w-2/6 mb-6 rounded-md" src={friends} alt="friends" />
@@ -15,7 +15,7 @@ function WelcomePage({onStartQuiz}) {
       </p>
       <button 
       onClick={onStartQuiz}
-      className="bg-purple-600 text-white py-3 px-6 rounded-lg text-lg font-semibold hover:bg-purple-800">Teste Başla</button>
+      className="bg-purple-700 text-white py-3 px-6 rounded-lg text-lg font-semibold hover:bg-purple-900">Teste Başla</button>
     </div>
   );
 }
