@@ -8,6 +8,7 @@ function Question({ questions, currentIndex, handleAnswer, selectedAnswer }) {
       <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-2xl">
         {/* Soru Başlığı */}
         <h2 className="font-bold text-2xl mb-4 text-center">
+          <span>{questions[currentIndex].id}. </span>
           {currentQuestion.question}
         </h2>
 
