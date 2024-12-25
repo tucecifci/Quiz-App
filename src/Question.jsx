@@ -5,7 +5,7 @@ function Question({ questions, currentIndex, handleAnswer, selectedAnswer }) {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-purple-200">
-      <div className="bg-white h-screen shadow-lg rounded-lg p-8 w-full max-w-2xl sm:h-full md:h-full ">
+      <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-2xl sm:h-full md:h-full ">
         {/* Soru Başlığı */}
         <h2 className="font-bold text-xl mb-4 text-center md:text-2xl">
           <span>{questions[currentIndex].id}. </span>

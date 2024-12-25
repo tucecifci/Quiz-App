@@ -176,10 +176,10 @@ function App() {
       ) : quizFinished ? (
         <ResultPage score={score} totalQuestions={questions.length} />
       ) : (
-        <div className="">
+        <div className="relative">
           <FaRegArrowAltCircleLeft
             size="2em"
-            className="cursor-pointer"
+            className="cursor-pointer fixed inset-y-0 top-1/2 left-2"
             onClick={handleBeforeQuestion}
           />
           <Question
@@ -192,7 +192,7 @@ function App() {
 
           <FaRegArrowAltCircleRight
             size="2em"
-            className="cursor-pointer"
+            className="cursor-pointer fixed inset-y-0 right-2 top-1/2"
             onClick={handleNextQuestion}
           />
         </div>

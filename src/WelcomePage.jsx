@@ -4,7 +4,7 @@ import friends from "./assets/friendsfull.jpeg";
 
 function WelcomePage({onStartQuiz}) {
   return (
-    <div className="flex flex-col items-center justify-center bg-purple-200 min-h-screen">
+    <div className="flex flex-col items-center justify-center bg-purple-200 h-screen">
       <h1 className="text-5xl md:text-6xl font-bold text-center text-purple-900 mb-6">
         Hoş Geldiniz!
       </h1>
