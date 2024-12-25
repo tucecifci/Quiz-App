@@ -23,7 +23,7 @@ function ResultPage({ score, totalQuestions }) {
       <img className="w-3/12 mb-6 rounded-md" src={friends4} alt="" />
       <p className="text-xl text-gray-900 text-center max-w-lg">{resultMessage} 
       <br />
-       <span className="font-bold text-4xl mt-6">{score} / 10 </span></p>
+       <span className="font-bold text-4xl mt-10">{score} / 10 </span></p>
       <button
         onClick={() => window.location.reload()}
         className="bg-purple-600 text-white py-3 px-6 rounded-lg text-lg font-semibold hover:bg-purple-800 mt-6"

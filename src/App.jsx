@@ -179,7 +179,7 @@ function App() {
         <div className="relative">
           <FaRegArrowAltCircleLeft
             size="2em"
-            className="cursor-pointer fixed inset-y-0 top-1/2 left-2"
+            className="cursor-pointer fixed inset-y-0 top-1/2 left-2 lg:left-[610px]"
             onClick={handleBeforeQuestion}
           />
           <Question
@@ -192,7 +192,7 @@ function App() {
 
           <FaRegArrowAltCircleRight
             size="2em"
-            className="cursor-pointer fixed inset-y-0 right-2 top-1/2"
+            className="cursor-pointer fixed inset-y-0 right-2 top-1/2 lg:right-[610px]"
             onClick={handleNextQuestion}
           />
         </div>
